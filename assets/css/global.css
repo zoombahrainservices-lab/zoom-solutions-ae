@@ -1,0 +1,550 @@
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
+
+:root {
+    --font: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
+    --navy: #063b64;
+    --navy-dark: #04253f;
+    --blue: #087fc0;
+    --cyan: #20b8e8;
+    --sky: #eaf8ff;
+    --soft: #f6fbff;
+    --white: #ffffff;
+    --ink: #102235;
+    --muted: #5b6f82;
+    --line: #dce8f1;
+    --success: #24c47a;
+    --shadow: 0 24px 70px rgba(6, 59, 100, 0.12);
+    --shadow-soft: 0 14px 40px rgba(6, 59, 100, 0.08);
+    --radius-xl: 32px;
+    --radius-lg: 22px;
+    --radius-md: 14px;
+    --page-gutter: 50px;
+}
+
+@media (max-width: 1100px) {
+    :root {
+        --page-gutter: 32px;
+    }
+}
+
+@media (max-width: 640px) {
+    :root {
+        --page-gutter: 16px;
+    }
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+}
+
+body {
+    margin: 0;
+    font-family: var(--font);
+    font-weight: 400;
+    color: var(--ink);
+    background: var(--white);
+    line-height: 1.6;
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    padding-top: 82px;
+}
+
+img,
+svg {
+    max-width: 100%;
+    height: auto;
+    display: block;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+p,
+h1,
+h2,
+h3 {
+    margin-top: 0;
+}
+
+p {
+    color: var(--muted);
+}
+
+button {
+    font: inherit;
+}
+
+.container {
+    width: auto;
+    max-width: none;
+    margin-left: var(--page-gutter);
+    margin-right: var(--page-gutter);
+}
+
+.section-padding {
+    padding-top: clamp(72px, 8vw, 120px);
+    padding-bottom: clamp(72px, 8vw, 120px);
+}
+
+.skip-link {
+    position: absolute;
+    left: 16px;
+    top: 16px;
+    z-index: 999;
+    background: var(--white);
+    color: var(--navy);
+    padding: 10px 16px;
+    border-radius: 999px;
+    box-shadow: var(--shadow-soft);
+    transform: translateY(-140%);
+}
+
+.skip-link:focus {
+    transform: translateY(0);
+}
+
+.eyebrow {
+    color: var(--blue);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    margin-bottom: 0.85rem;
+}
+
+h1,
+h2,
+h3 {
+    color: var(--navy);
+    letter-spacing: -0.045em;
+    font-family: var(--font);
+}
+
+h1 {
+    font-size: clamp(3rem, 7vw, 7.5rem);
+    font-weight: 800;
+    line-height: 0.94;
+}
+
+h2 {
+    font-size: clamp(2rem, 4.5vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
+h3 {
+    font-size: clamp(1.15rem, 1.5vw, 1.45rem);
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.section-heading {
+    max-width: 900px;
+}
+
+.section-heading.center {
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.section-heading.center p {
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 50px;
+    padding: 0.85rem 1.25rem;
+    border-radius: 999px;
+    font-family: var(--font);
+    font-weight: 600;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    color: var(--white);
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    box-shadow: 0 14px 34px rgba(8, 127, 192, 0.24);
+}
+
+.btn-secondary {
+    color: var(--navy);
+    background: var(--white);
+    border: 1px solid var(--line);
+}
+
+.text-link {
+    display: inline-flex;
+    margin-top: 0.8rem;
+    font-family: var(--font);
+    color: var(--blue);
+    font-weight: 600;
+}
+
+.site-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.9);
+    border-bottom: 1px solid rgba(220, 232, 241, 0.85);
+    backdrop-filter: blur(16px);
+}
+
+.header-inner {
+    min-height: 82px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+}
+
+.brand,
+.footer-brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.brand-icon {
+    width: 46px;
+    height: 46px;
+    display: grid;
+    place-items: center;
+    border-radius: 15px;
+    color: var(--white);
+    background: linear-gradient(135deg, var(--blue), var(--cyan));
+    font-family: var(--font);
+    font-weight: 800;
+    transform: rotate(45deg);
+}
+
+.brand-icon::before {
+    content: "Z";
+    transform: rotate(-45deg);
+}
+
+.brand-icon {
+    font-size: 0;
+}
+
+.brand-copy {
+    display: grid;
+    line-height: 1;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+}
+
+.brand-copy strong {
+    color: var(--navy);
+    font-size: 1rem;
+}
+
+.brand-copy small {
+    color: var(--muted);
+    font-size: 0.62rem;
+    font-weight: 700;
+}
+
+.main-nav {
+    display: flex;
+    align-items: center;
+    gap: clamp(12px, 1.4vw, 24px);
+    font-size: 0.92rem;
+    font-weight: 500;
+    color: var(--navy);
+}
+
+.main-nav a:hover {
+    color: var(--blue);
+}
+
+.nav-cta {
+    color: var(--white) !important;
+    background: var(--navy);
+    padding: 0.72rem 1.05rem;
+    border-radius: 999px;
+    font-weight: 600;
+}
+
+.menu-toggle {
+    display: none;
+    width: 46px;
+    height: 46px;
+    border: 0;
+    border-radius: 14px;
+    background: var(--sky);
+    cursor: pointer;
+}
+
+.menu-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    margin: 5px auto;
+    background: var(--navy);
+    border-radius: 999px;
+}
+
+.site-footer {
+    font-family: var(--font);
+    padding-top: 64px;
+    background:
+        radial-gradient(circle at 15% 0%, rgba(32, 184, 232, 0.25), transparent 34%),
+        var(--navy-dark);
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: 1.35fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 44px;
+}
+
+.footer-brand {
+    margin-bottom: 1rem;
+}
+
+.footer-brand .brand-copy strong,
+.footer-brand .brand-copy small {
+    color: var(--white);
+}
+
+.site-footer h2 {
+    color: var(--white);
+    font-size: 1rem;
+    letter-spacing: 0;
+    margin-bottom: 1rem;
+}
+
+.site-footer a {
+    display: block;
+    margin: 0.55rem 0;
+    color: rgba(255, 255, 255, 0.76);
+}
+
+.site-footer a:hover {
+    color: var(--white);
+}
+
+.site-footer p {
+    color: rgba(255, 255, 255, 0.72);
+    max-width: 420px;
+}
+
+.footer-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    padding-bottom: 22px;
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.footer-bottom p {
+    margin: 0;
+}
+
+@media (max-width: 1040px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .main-nav {
+        position: fixed;
+        left: var(--page-gutter);
+        right: var(--page-gutter);
+        top: 92px;
+        display: grid;
+        gap: 0;
+        padding: 10px;
+        background: var(--white);
+        border: 1px solid var(--line);
+        border-radius: 22px;
+        box-shadow: var(--shadow);
+        opacity: 0;
+        pointer-events: none;
+        transform: translateY(-10px);
+        transition: 0.2s ease;
+    }
+
+    .main-nav.is-open {
+        opacity: 1;
+        pointer-events: auto;
+        transform: translateY(0);
+    }
+
+    .main-nav a {
+        padding: 13px 14px;
+        border-radius: 12px;
+    }
+
+    .nav-cta {
+        text-align: center;
+        margin-top: 6px;
+    }
+
+    .footer-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .footer-bottom {
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 640px) {
+    body {
+        padding-top: 74px;
+    }
+
+    h1 {
+        font-size: clamp(2.6rem, 15vw, 4.7rem);
+    }
+
+    h2 {
+        font-size: clamp(2rem, 10vw, 3.4rem);
+    }
+
+    .header-inner {
+        min-height: 74px;
+    }
+
+    .brand-copy strong {
+        font-size: 0.9rem;
+    }
+
+    .brand-copy small {
+        font-size: 0.56rem;
+    }
+}
+
+/* WhatsApp Floating Button */
+.whatsapp-widget {
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    z-index: 1000;
+}
+
+.whatsapp-menu {
+    display: none;
+    gap: 8px;
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 14px;
+    background: rgba(3, 31, 52, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    box-shadow: 0 14px 30px rgba(0, 0, 0, 0.2);
+}
+
+.whatsapp-widget.is-open .whatsapp-menu {
+    display: grid;
+}
+
+.whatsapp-menu a {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 36px;
+    padding: 8px 12px;
+    border-radius: 10px;
+    background: rgba(37, 211, 102, 0.16);
+    color: #e9fff2;
+    font-size: 13px;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.whatsapp-menu a:hover {
+    background: rgba(37, 211, 102, 0.28);
+}
+
+.whatsapp-float {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    background-color: #25d366;
+    color: #fff;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 0px 4px 14px rgba(37, 211, 102, 0.4);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275), box-shadow 0.3s ease;
+}
+
+.whatsapp-float:hover {
+    transform: scale(1.1) translateY(-4px);
+    box-shadow: 0px 8px 24px rgba(37, 211, 102, 0.6);
+    color: #fff;
+}
+
+.whatsapp-icon {
+    width: 32px;
+    height: 32px;
+    fill: currentColor;
+}
+
+@media (max-width: 768px) {
+    .whatsapp-widget {
+        right: 20px;
+        bottom: 20px;
+    }
+
+    .whatsapp-float {
+        width: 50px;
+        height: 50px;
+    }
+
+    .whatsapp-menu {
+        margin-bottom: 8px;
+        padding: 8px;
+    }
+
+    .whatsapp-menu a {
+        min-height: 34px;
+    }
+
+    .whatsapp-icon {
+        width: 26px;
+        height: 26px;
+    }
+}
+
+/* Logo Styles */
+.brand-logo, .footer-logo {
+    height: 46px;
+    width: auto;
+    object-fit: contain;
+}
+@media (max-width: 640px) {
+    .brand-logo, .footer-logo {
+        height: 38px;
+    }
+}
