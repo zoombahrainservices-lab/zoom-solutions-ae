@@ -247,9 +247,7 @@
 
 .two-column {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: clamp(36px, 7vw, 100px);
-    align-items: start;
+    gap: 24px;
 }
 
 .overview-section {
@@ -257,10 +255,11 @@
 }
 
 .overview-grid {
-    align-items: center;
+    display: grid;
+    gap: 24px;
 }
 
-.overview-copy h2 {
+.overview-heading h2 {
     margin-bottom: 1rem;
 }
 
@@ -273,12 +272,6 @@
     overflow: hidden;
     border: 1px solid var(--line);
     box-shadow: var(--shadow);
-}
-
-.overview-visual img {
-    display: block;
-    width: 100%;
-    height: auto;
 }
 
 .capabilities-section {
@@ -966,10 +959,30 @@ details p {
     margin-top: 1.5rem;
 }
 
+@media (min-width: 1181px) {
+    .two-column {
+        grid-template-columns: 0.9fr 1.1fr;
+        gap: clamp(36px, 7vw, 100px);
+        align-items: start;
+    }
+
+    .overview-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-areas:
+            "heading visual"
+            "body visual";
+        gap: clamp(36px, 7vw, 100px);
+        align-items: start;
+    }
+
+    .overview-visual  { grid-area: visual;  align-self: center; }
+    .overview-heading { grid-area: heading; align-self: end; }
+    .overview-body    { grid-area: body;    align-self: start; }
+}
+
 @media (max-width: 1180px) {
 
     .cold-hero-grid,
-    .two-column,
     .packaging-grid,
     .monitoring-grid,
     .quality-card,

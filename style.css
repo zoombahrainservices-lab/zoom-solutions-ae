@@ -16,8 +16,8 @@
     --shadow: 0 24px 70px rgba(6, 59, 100, 0.14);
     --radius: 24px;
 
-    /* Full-width layout with 50px desktop spacing */
-    --side-space: 50px;
+    /* Mobile-first side spacing — overridden up at larger breakpoints */
+    --side-space: 20px;
 }
 
 * {
@@ -41,6 +41,16 @@ body {
 img {
     max-width: 100%;
     height: auto;
+}
+
+picture {
+    display: block;
+}
+
+picture img {
+    width: 100%;
+    height: auto;
+    display: block;
 }
 
 a {
@@ -90,7 +100,7 @@ h3 {
 }
 
 .section-padding {
-    padding: 96px 0;
+    padding: 68px 0;
 }
 
 .center {
@@ -484,15 +494,11 @@ h3 {
 
 .two-column {
     display: grid;
-    grid-template-columns: 0.85fr 1.15fr;
-    gap: 58px;
-    align-items: start;
+    gap: 24px;
 }
 
 .intro-split {
-    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
-    gap: 52px;
-    align-items: center;
+    gap: 24px;
 }
 
 .intro-visual {
@@ -508,7 +514,7 @@ h3 {
     height: auto;
 }
 
-.intro-copy h2 {
+.intro-heading h2 {
     margin-top: 10px;
 }
 
@@ -529,7 +535,7 @@ h3 {
 }
 
 .solutions-intro {
-    padding: 96px 0 48px;
+    padding: 68px 0 40px;
 }
 
 .solutions-intro .section-heading {
@@ -636,31 +642,15 @@ h3 {
     border-top: 1px solid var(--border);
 }
 
-.two-column.solution-split__grid {
-    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-    gap: clamp(36px, 5vw, 56px);
-    align-items: start;
-}
-
-.solution-split__copy {
-    max-width: 560px;
-    align-self: start;
+.solution-split__grid {
+    display: grid;
+    gap: 28px;
 }
 
 .solution-split__media {
     border-radius: var(--radius);
     overflow: hidden;
     width: 100%;
-    align-self: start;
-    max-height: clamp(460px, 34vw, 580px);
-}
-
-.solution-split__media img {
-    display: block;
-    width: 100%;
-    height: clamp(460px, 34vw, 580px);
-    object-fit: cover;
-    object-position: center;
 }
 
 .solution-split__heading {
@@ -673,19 +663,19 @@ h3 {
     color: var(--primary-dark);
 }
 
-.solution-split__copy > p {
+.solution-split__body > p {
     margin: 0 0 18px;
     color: var(--muted);
     font-size: 17px;
 }
 
-.solution-split__copy ul {
+.solution-split__body ul {
     margin: 18px 0 22px;
     padding: 0;
     list-style: none;
 }
 
-.solution-split__copy li {
+.solution-split__body li {
     position: relative;
     padding-left: 26px;
     margin-bottom: 10px;
@@ -693,7 +683,7 @@ h3 {
     font-size: 17px;
 }
 
-.solution-split__copy li::before {
+.solution-split__body li::before {
     content: "✓";
     position: absolute;
     left: 0;
@@ -1056,9 +1046,7 @@ h3 {
 
 .monitoring-grid {
     display: grid;
-    grid-template-columns: 0.9fr 1.1fr;
-    gap: 70px;
-    align-items: start;
+    gap: 28px;
 }
 
 .monitoring-visual {
@@ -1395,6 +1383,131 @@ h3 {
     margin: 0;
 }
 
+/* Desktop two-column layouts */
+@media (min-width: 980px) {
+    /* Restore generic two-column grids used by remaining elements */
+    .two-column {
+        grid-template-columns: 0.85fr 1.15fr;
+        gap: 58px;
+        align-items: start;
+    }
+
+    /* Intro section: visual LEFT, heading+body RIGHT */
+    .intro-split {
+        grid-template-columns: 1fr 1fr;
+        grid-template-areas:
+            "visual heading"
+            "visual body";
+        gap: 52px;
+        align-items: start;
+    }
+
+    .intro-visual {
+        grid-area: visual;
+        align-self: center;
+    }
+
+    .intro-heading {
+        grid-area: heading;
+        align-self: end;
+    }
+
+    .intro-body {
+        grid-area: body;
+        align-self: start;
+    }
+
+    /* Solution splits */
+    .solution-split__grid {
+        grid-template-columns: 1fr 1fr;
+        gap: clamp(36px, 5vw, 56px);
+        align-items: start;
+    }
+
+    /* tone-a: heading+body LEFT, visual RIGHT */
+    .solution-split--tone-a .solution-split__grid {
+        grid-template-areas:
+            "head visual"
+            "body visual";
+    }
+
+    /* tone-b: visual LEFT, heading+body RIGHT */
+    .solution-split--tone-b .solution-split__grid {
+        grid-template-areas:
+            "visual head"
+            "visual body";
+    }
+
+    .solution-split__head {
+        grid-area: head;
+        align-self: end;
+    }
+
+    .solution-split__body {
+        grid-area: body;
+        align-self: start;
+        max-width: 560px;
+    }
+
+    .solution-split__media {
+        grid-area: visual;
+        align-self: stretch;
+        max-height: clamp(460px, 34vw, 580px);
+    }
+
+    .solution-split__media img {
+        height: clamp(460px, 34vw, 580px);
+        object-fit: cover;
+        object-position: center;
+    }
+
+    /* Monitoring section: visual LEFT, heading+body RIGHT */
+    .monitoring-grid {
+        grid-template-columns: 0.9fr 1.1fr;
+        grid-template-areas:
+            "visual heading"
+            "visual body";
+        gap: 70px;
+        align-items: start;
+    }
+
+    .monitoring-visual {
+        grid-area: visual;
+        align-self: center;
+    }
+
+    .monitoring-heading {
+        grid-area: heading;
+        align-self: end;
+    }
+
+    .monitoring-body {
+        grid-area: body;
+        align-self: start;
+    }
+}
+
+/* Mobile-first spacing scale */
+@media (min-width: 431px) {
+    :root {
+        --side-space: 28px;
+    }
+}
+
+@media (min-width: 701px) {
+    :root {
+        --side-space: 50px;
+    }
+
+    .section-padding {
+        padding: 96px 0;
+    }
+
+    .solutions-intro {
+        padding: 96px 0 48px;
+    }
+}
+
 /* Large screens */
 @media (min-width: 1600px) {
     .main-nav {
@@ -1484,8 +1597,6 @@ h3 {
     }
 
     .hero-grid,
-    .two-column,
-    .monitoring-grid,
     .coverage-card,
     .faq-grid,
     .footer-grid {
@@ -1514,24 +1625,8 @@ h3 {
 
 /* Mobile optimisation */
 @media (max-width: 700px) {
-    :root {
-        --side-space: 28px;
-    }
-
-    .section-padding {
-        padding: 68px 0;
-    }
-
     .solutions-intro {
         padding: 68px 0 40px;
-    }
-
-    .solution-split__media {
-        max-height: clamp(400px, 56vw, 480px);
-    }
-
-    .solution-split__media img {
-        height: clamp(400px, 56vw, 480px);
     }
 
     .solution-split__cta {
@@ -1605,10 +1700,6 @@ h3 {
 
 /* Small phones */
 @media (max-width: 430px) {
-    :root {
-        --side-space: 20px;
-    }
-
     .header-inner {
         min-height: 74px;
     }
