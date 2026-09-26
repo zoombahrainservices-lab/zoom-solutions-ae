@@ -13,12 +13,30 @@
     <meta name="theme-color" content="#063b64">
 
     <link rel="canonical" href="https://zoomsolutions.ae/sample-collection-logistics/">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preload" as="image" href="../assets/images/sample-hero-bg.webp" type="image/webp">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
-    <link rel="stylesheet" href="../assets/css/global.css">
-    <link rel="stylesheet" href="style.css">
+    <link rel="preload" href="../assets/fonts/manrope-latin.woff2" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="../assets/css/global.css" as="style">
+    <link rel="preload" href="style.css" as="style">
+    <link rel="stylesheet" href="../assets/css/global.css" media="print" onload="this.media='all'">
+    <link rel="stylesheet" href="style.css" media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="../assets/css/global.css">
+        <link rel="stylesheet" href="style.css">
+    </noscript>
+    <style>
+        body { margin: 0; background: #fff; color: #102235; font-family: Manrope, ui-sans-serif, system-ui, sans-serif; }
+        .site-header { position: fixed; inset: 0 0 auto 0; z-index: 100; background: #fff; }
+        .header-inner { min-height: 82px; display: flex; align-items: center; justify-content: space-between; }
+        .brand-logo { height: 46px; width: auto; }
+        .menu-toggle { display: none; }
+        .main-nav { display: flex; gap: 16px; }
+        .sample-hero { position: relative; padding-top: 130px; }
+        .sample-hero-bg { position: absolute; inset: 0; background: #f7fcff url("../assets/images/sample-hero-bg.webp") center/cover no-repeat; }
+        @media (max-width: 1040px) {
+            .menu-toggle { display: block; }
+            .main-nav { display: none; }
+        }
+    </style>
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="Clinical Sample Collection &amp; Transport UAE | Zoom Solutions">
@@ -26,12 +44,12 @@
         content="Clinical sample collection and specimen transport in the UAE, with temperature checks, monitoring and proof of delivery. Talk to Zoom Solutions about a pickup.">
     <meta property="og:url" content="https://zoomsolutions.ae/sample-collection-logistics/">
     <meta property="og:site_name" content="Zoom Solutions">
-    <meta property="og:image" content="https://zoomsolutions.ae/assets/images/sample-overview-collection-process.png">
+    <meta property="og:image" content="https://zoomsolutions.ae/assets/images/sample-overview-collection-process.webp">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Clinical Sample Collection &amp; Transport UAE | Zoom Solutions">
     <meta name="twitter:description"
         content="Clinical sample collection and specimen transport in the UAE, with temperature checks, monitoring and proof of delivery. Talk to Zoom Solutions about a pickup.">
-    <meta name="twitter:image" content="https://zoomsolutions.ae/assets/images/sample-overview-collection-process.png">
+    <meta name="twitter:image" content="https://zoomsolutions.ae/assets/images/sample-overview-collection-process.webp">
 
     <script type="application/ld+json">
 {
@@ -48,8 +66,7 @@
                 "Bahrain",
                 "Middle East",
                 "Worldwide"
-            ],
-            "email": "ebrahim@zoomsolutions.ae"
+            ]
         },
         {
             "@type": "Service",
@@ -88,7 +105,7 @@
     ]
 }
     </script>
-    <link rel="icon" href="../assets/images/favicon.png" type="image/png">
+    <link rel="icon" href="../assets/images/favicon-32.webp" type="image/webp">
 </head>
 
 <body class="sample-page">
@@ -97,7 +114,7 @@
     <header class="site-header">
         <div class="container header-inner">
             <a class="brand" href="../" aria-label="Zoom Solutions home">
-                <img src="../assets/images/logo.png" alt="Zoom Solutions Logo" class="brand-logo">
+                <img src="../assets/images/logo-nav.webp" srcset="../assets/images/logo-nav.webp 160w, ../assets/images/logo-nav-2x.webp 320w" sizes="140px" alt="Zoom Solutions Logo" width="160" height="53" class="brand-logo">
             </a>
 
             <button class="menu-toggle" type="button" aria-label="Open navigation" aria-expanded="false">
@@ -181,18 +198,7 @@
                 </div>
 
                 <div class="overview-visual">
-                    <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-overview-collection-process.webp" width="1024" height="576">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-overview-collection-process-md.webp" width="800" height="450">
-                        <source type="image/webp" srcset="../assets/images/sample-overview-collection-process-sm.webp">
-
-                        <source media="(min-width: 1024px)" srcset="../assets/images/sample-overview-collection-process.png" width="1024" height="576">
-                        <source media="(min-width: 640px)" srcset="../assets/images/sample-overview-collection-process-md.png" width="800" height="450">
-                        <img src="../assets/images/sample-overview-collection-process-sm.png"
-                            alt="Sample collection courier handling a temperature-controlled shipment with tracking and quality-check overlays."
-                            width="480" height="270"
-                            loading="lazy" decoding="async">
-                    </picture>
+                    <img src="../assets/images/sample-overview-collection-process-sm.webp" srcset="../assets/images/sample-overview-collection-process-sm.webp 480w, ../assets/images/sample-overview-collection-process-md.webp 800w" sizes="(min-width: 1000px) 620px, 100vw" alt="Sample collection courier handling a temperature-controlled shipment with tracking and quality-check overlays." width="480" height="270" loading="lazy" decoding="async">
                 </div>
 
                 <div class="overview-body">
@@ -280,17 +286,7 @@
                 <div class="service-grid">
                     <article class="service-card">
                         <div class="service-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-service-01-collection.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-service-01-collection-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-service-01-collection-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-service-01-collection.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-service-01-collection-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-service-01-collection-sm.png"
-                                alt="Clinical sample collection setup with temperature and route monitoring overlays." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-service-01-collection-320.webp" srcset="../assets/images/sample-service-01-collection-320.webp 320w, ../assets/images/sample-service-01-collection-sm.webp 480w" sizes="(min-width: 1100px) 270px, (min-width: 760px) 46vw, 100vw" alt="Clinical sample collection setup with temperature and route monitoring overlays." width="320" height="240" loading="lazy" decoding="async">
                         </div>
                         <div class="service-card__body">
                             <h3>Clinical Sample Collection</h3>
@@ -303,17 +299,7 @@
 
                     <article class="service-card">
                         <div class="service-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-service-02-handling.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-service-02-handling-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-service-02-handling-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-service-02-handling.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-service-02-handling-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-service-02-handling-sm.png"
-                                alt="Biological sample pickup with controlled handling and cold chain checks." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-service-02-handling-320.webp" srcset="../assets/images/sample-service-02-handling-320.webp 320w, ../assets/images/sample-service-02-handling-sm.webp 480w" sizes="(min-width: 1100px) 270px, (min-width: 760px) 46vw, 100vw" alt="Biological sample pickup with controlled handling and cold chain checks." width="320" height="240" loading="lazy" decoding="async">
                         </div>
                         <div class="service-card__body">
                             <h3>Biological Sample Pickup</h3>
@@ -326,17 +312,7 @@
 
                     <article class="service-card">
                         <div class="service-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-service-03-transport.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-service-03-transport-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-service-03-transport-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-service-03-transport.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-service-03-transport-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-service-03-transport-sm.png"
-                                alt="Temperature-controlled dispatch loading with route, vehicle and condition overlays." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-service-03-transport-320.webp" srcset="../assets/images/sample-service-03-transport-320.webp 320w, ../assets/images/sample-service-03-transport-sm.webp 480w" sizes="(min-width: 1100px) 270px, (min-width: 760px) 46vw, 100vw" alt="Temperature-controlled dispatch loading with route, vehicle and condition overlays." width="320" height="240" loading="lazy" decoding="async">
                         </div>
                         <div class="service-card__body">
                             <h3>Temperature-Controlled Dispatch</h3>
@@ -349,17 +325,7 @@
 
                     <article class="service-card">
                         <div class="service-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-service-04-delivery.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-service-04-delivery-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-service-04-delivery-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-service-04-delivery.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-service-04-delivery-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-service-04-delivery-sm.png"
-                                alt="Proof of delivery handover between courier and healthcare receiver with confirmation icons." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-service-04-delivery-320.webp" srcset="../assets/images/sample-service-04-delivery-320.webp 320w, ../assets/images/sample-service-04-delivery-sm.webp 480w" sizes="(min-width: 1100px) 270px, (min-width: 760px) 46vw, 100vw" alt="Proof of delivery handover between courier and healthcare receiver with confirmation icons." width="320" height="240" loading="lazy" decoding="async">
                         </div>
                         <div class="service-card__body">
                             <h3>Proof of Delivery</h3>
@@ -395,17 +361,7 @@
                 <div class="quality-steps">
                     <div class="quality-step">
                         <div class="quality-step__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-quality-01-check.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-quality-01-check-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-quality-01-check-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-quality-01-check.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-quality-01-check-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-quality-01-check-sm.png"
-                                alt="Quality checklist and temperature verification before sample dispatch." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-quality-01-check-sm.webp" srcset="../assets/images/sample-quality-01-check-sm.webp 480w, ../assets/images/sample-quality-01-check-md.webp 800w" sizes="(min-width: 760px) 520px, 100vw" alt="Quality checklist and temperature verification before sample dispatch." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="quality-step__body">
                             <h3>Check</h3>
@@ -415,17 +371,7 @@
 
                     <div class="quality-step">
                         <div class="quality-step__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-quality-02-pack.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-quality-02-pack-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-quality-02-pack-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-quality-02-pack.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-quality-02-pack-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-quality-02-pack-sm.png"
-                                alt="Sample packing with insulated container, ice packs and sealing preparation." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-quality-02-pack-sm.webp" srcset="../assets/images/sample-quality-02-pack-sm.webp 480w, ../assets/images/sample-quality-02-pack-md.webp 800w" sizes="(min-width: 760px) 520px, 100vw" alt="Sample packing with insulated container, ice packs and sealing preparation." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="quality-step__body">
                             <h3>Pack</h3>
@@ -435,17 +381,7 @@
 
                     <div class="quality-step">
                         <div class="quality-step__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-quality-03-track.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-quality-03-track-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-quality-03-track-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-quality-03-track.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-quality-03-track-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-quality-03-track-sm.png"
-                                alt="Live shipment tracking dashboard showing route, status and temperature data." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-quality-03-track-sm.webp" srcset="../assets/images/sample-quality-03-track-sm.webp 480w, ../assets/images/sample-quality-03-track-md.webp 800w" sizes="(min-width: 760px) 520px, 100vw" alt="Live shipment tracking dashboard showing route, status and temperature data." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="quality-step__body">
                             <h3>Track</h3>
@@ -455,17 +391,7 @@
 
                     <div class="quality-step">
                         <div class="quality-step__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-quality-04-deliver.webp" width="1024" height="1024">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-quality-04-deliver-md.webp" width="800" height="800">
-                        <source type="image/webp" srcset="../assets/images/sample-quality-04-deliver-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-quality-04-deliver.png" width="1024" height="1024">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-quality-04-deliver-md.png" width="800" height="800">
-                            <img src="../assets/images/sample-quality-04-deliver-sm.png"
-                                alt="Courier and receiver completing final sample handover and delivery confirmation." width="480" height="480"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/sample-quality-04-deliver-sm.webp" srcset="../assets/images/sample-quality-04-deliver-sm.webp 480w, ../assets/images/sample-quality-04-deliver-md.webp 800w" sizes="(min-width: 760px) 520px, 100vw" alt="Courier and receiver completing final sample handover and delivery confirmation." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="quality-step__body">
                             <h3>Deliver</h3>
@@ -486,17 +412,7 @@
                 <div class="temperature-grid">
                     <article class="temperature-card">
                         <div class="temperature-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/temperature-refrigerated-2-8.webp" width="800" height="600">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/temperature-refrigerated-2-8-md.webp" width="800" height="600">
-                        <source type="image/webp" srcset="../assets/images/temperature-refrigerated-2-8-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/temperature-refrigerated-2-8.png" width="800" height="600">
-                            <source media="(min-width: 640px)" srcset="../assets/images/temperature-refrigerated-2-8-md.png" width="800" height="600">
-                            <img src="../assets/images/temperature-refrigerated-2-8-sm.png"
-                                alt="Refrigerated transport van, insulated cold box and digital temperature monitor confirming a 2–8°C range." width="480" height="360"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/temperature-refrigerated-2-8-sm.webp" srcset="../assets/images/temperature-refrigerated-2-8-sm.webp 480w, ../assets/images/temperature-refrigerated-2-8-md.webp 800w" sizes="(min-width: 1000px) 340px, (min-width: 760px) 46vw, 100vw" alt="Refrigerated transport van, insulated cold box and digital temperature monitor confirming a 2–8°C range." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="temperature-card__body">
                             <span>Refrigerated</span>
@@ -508,17 +424,7 @@
 
                     <article class="temperature-card">
                         <div class="temperature-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/temperature-controlled-room-2-25.webp" width="800" height="600">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/temperature-controlled-room-2-25-md.webp" width="800" height="600">
-                        <source type="image/webp" srcset="../assets/images/temperature-controlled-room-2-25-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/temperature-controlled-room-2-25.png" width="800" height="600">
-                            <source media="(min-width: 640px)" srcset="../assets/images/temperature-controlled-room-2-25-md.png" width="800" height="600">
-                            <img src="../assets/images/temperature-controlled-room-2-25-sm.png"
-                                alt="Warehouse quality check: operator scanning a CRT-labeled shipment with ambient temperature monitoring on display." width="480" height="360"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/temperature-controlled-room-2-25-sm.webp" srcset="../assets/images/temperature-controlled-room-2-25-sm.webp 480w, ../assets/images/temperature-controlled-room-2-25-md.webp 800w" sizes="(min-width: 1000px) 340px, (min-width: 760px) 46vw, 100vw" alt="Warehouse quality check: operator scanning a CRT-labeled shipment with ambient temperature monitoring on display." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="temperature-card__body">
                             <span>Controlled room temperature</span>
@@ -529,17 +435,7 @@
 
                     <article class="temperature-card">
                         <div class="temperature-card__media">
-                            <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/temperature-custom-lane-route-assessment.webp" width="800" height="600">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/temperature-custom-lane-route-assessment-md.webp" width="800" height="600">
-                        <source type="image/webp" srcset="../assets/images/temperature-custom-lane-route-assessment-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/temperature-custom-lane-route-assessment.png" width="800" height="600">
-                            <source media="(min-width: 640px)" srcset="../assets/images/temperature-custom-lane-route-assessment-md.png" width="800" height="600">
-                            <img src="../assets/images/temperature-custom-lane-route-assessment-sm.png"
-                                alt="Operations team reviewing a route assessment on a tablet beside airport cargo, with shipment planning materials." width="480" height="360"
-                                loading="lazy" decoding="async">
-                        </picture>
+                            <img src="../assets/images/temperature-custom-lane-route-assessment-sm.webp" srcset="../assets/images/temperature-custom-lane-route-assessment-sm.webp 480w, ../assets/images/temperature-custom-lane-route-assessment-md.webp 800w" sizes="(min-width: 1000px) 340px, (min-width: 760px) 46vw, 100vw" alt="Operations team reviewing a route assessment on a tablet beside airport cargo, with shipment planning materials." width="480" height="360" loading="lazy" decoding="async">
                         </div>
                         <div class="temperature-card__body">
                             <span>Special requirement</span>
@@ -572,17 +468,7 @@
                 </div>
 
                 <div class="packaging-visual">
-                    <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-packing-sealing.webp" width="1024" height="576">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-packing-sealing-md.webp" width="800" height="450">
-                        <source type="image/webp" srcset="../assets/images/sample-packing-sealing-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-packing-sealing.png" width="1024" height="576">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-packing-sealing-md.png" width="800" height="450">
-                            <img src="../assets/images/sample-packing-sealing-sm.png"
-                                alt="Sample packing and sealing setup with insulated box, temperature logger, ice packs and dispatch materials." width="480" height="270"
-                                loading="lazy" decoding="async">
-                        </picture>
+                    <img src="../assets/images/sample-packing-sealing-sm.webp" srcset="../assets/images/sample-packing-sealing-sm.webp 480w, ../assets/images/sample-packing-sealing-md.webp 800w" sizes="(min-width: 1000px) 560px, 100vw" alt="Sample packing and sealing setup with insulated box, temperature logger, ice packs and dispatch materials." width="480" height="300" loading="lazy" decoding="async">
                 </div>
             </div>
         </section>
@@ -590,17 +476,7 @@
         <section class="monitoring-section section-padding">
             <div class="container monitoring-grid">
                 <div class="monitoring-visual">
-                    <picture>
-                        <source type="image/webp" media="(min-width: 1024px)" srcset="../assets/images/sample-live-visibility.webp" width="1024" height="576">
-                        <source type="image/webp" media="(min-width: 640px)" srcset="../assets/images/sample-live-visibility-md.webp" width="800" height="450">
-                        <source type="image/webp" srcset="../assets/images/sample-live-visibility-sm.webp">
-
-                            <source media="(min-width: 1024px)" srcset="../assets/images/sample-live-visibility.png" width="1024" height="576">
-                            <source media="(min-width: 640px)" srcset="../assets/images/sample-live-visibility-md.png" width="800" height="450">
-                            <img src="../assets/images/sample-live-visibility-sm.png"
-                                alt="Live sample shipment visibility with route, condition alerts and communication updates." width="480" height="270"
-                                loading="lazy" decoding="async">
-                        </picture>
+                    <img src="../assets/images/sample-live-visibility-sm.webp" srcset="../assets/images/sample-live-visibility-sm.webp 480w, ../assets/images/sample-live-visibility-md.webp 800w" sizes="(min-width: 1000px) 560px, 100vw" alt="Live sample shipment visibility with route, condition alerts and communication updates." width="480" height="300" loading="lazy" decoding="async">
                 </div>
 
                 <div>
@@ -695,7 +571,7 @@
             <div class="container faq-stack">
                 <header class="section-heading center">
                     <p class="eyebrow">FAQ</p>
-                    <h2>Sample collection logistics questions</h2>
+                    <p class="section-title">Sample collection logistics questions</p>
                     <p>
                         Clear answers for healthcare, laboratory, pharma and biotech teams planning sample pickup and
                         delivery.
@@ -758,7 +634,7 @@
         <section class="cta-section section-padding">
             <div class="container cta-card">
                 <p class="eyebrow">Request sample collection support</p>
-                <h2>Need controlled pickup for clinical or biological samples?</h2>
+                <p class="cta-title">Need controlled pickup for clinical or biological samples?</p>
                 <p>
                     Share your pickup location, delivery destination, sample type, temperature range, collection time
                     and delivery deadline. Our team can recommend the right collection, packing and monitoring setup.
@@ -766,9 +642,7 @@
 
                 <div class="cta-actions">
                     <a class="btn btn-primary" href="../contact/">Request a Quote</a>
-                    <a class="btn btn-secondary"
-                        href="mailto:ebrahim@zoomsolutions.ae?subject=Sample%20Collection%20Logistics%20Inquiry">Email
-                        UAE Office</a>
+                    <a class="btn btn-secondary mail-link" data-mail-user="ebrahim" data-mail-domain="zoomsolutions.ae" data-mail-subject="Sample Collection Logistics Inquiry">Email UAE Office</a>
                 </div>
             </div>
         </section>
@@ -792,7 +666,7 @@
         <div class="container footer-grid">
             <div>
                 <a class="footer-brand" href="../">
-                    <img src="../assets/images/logo.png" alt="Zoom Solutions Logo" class="footer-logo">
+                    <img src="../assets/images/logo-nav.webp" srcset="../assets/images/logo-nav.webp 160w, ../assets/images/logo-nav-2x.webp 320w" sizes="140px" alt="Zoom Solutions Logo" width="160" height="53" class="footer-logo">
                 </a>
 
                 <p>Precision logistics for the future of healthcare.</p>
@@ -811,8 +685,8 @@
                 <p class="footer-label">Company</p>
                 <a href="../about/">About</a>
                 <a href="../contact/">Contact</a>
-                <a href="mailto:niaz@zoombahrain.co">niaz@zoombahrain.co</a>
-                <a href="mailto:ebrahim@zoomsolutions.ae">ebrahim@zoomsolutions.ae</a>
+                <a class="mail-link" data-mail-user="niaz" data-mail-domain="zoombahrain.co"></a>
+                <a class="mail-link" data-mail-user="ebrahim" data-mail-domain="zoomsolutions.ae"></a>
             </div>
         </div>
 

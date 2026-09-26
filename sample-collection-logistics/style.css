@@ -12,11 +12,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: url("../assets/images/sample-hero-bg.png");
-    background-image: image-set(
-        url("../assets/images/sample-hero-bg.webp") type("image/webp"),
-        url("../assets/images/sample-hero-bg.png") type("image/png")
-    );
+    background-image: url("../assets/images/sample-hero-bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -728,10 +724,17 @@ details p {
     box-shadow: var(--shadow);
 }
 
-.cta-card h2 {
+.cta-card h2,
+.cta-card .cta-title,
+.section-heading.center .section-title {
     max-width: 950px;
     margin-left: auto;
     margin-right: auto;
+    color: var(--navy);
+    font-size: clamp(2rem, 4.5vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+    letter-spacing: -0.045em;
 }
 
 .cta-card p {

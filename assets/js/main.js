@@ -8,6 +8,16 @@ if (menuToggle && mainNav) {
     });
 }
 
+document.querySelectorAll(".mail-link").forEach((link) => {
+    const user = link.getAttribute("data-mail-user");
+    const domain = link.getAttribute("data-mail-domain");
+    if (!user || !domain) return;
+    const address = `${user}@${domain}`;
+    const subject = link.getAttribute("data-mail-subject");
+    link.href = subject ? `mailto:${address}?subject=${encodeURIComponent(subject)}` : `mailto:${address}`;
+    if (!link.textContent.trim()) link.textContent = address;
+});
+
 const year = document.getElementById("year");
 
 if (year) {
