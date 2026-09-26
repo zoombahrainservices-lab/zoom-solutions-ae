@@ -13,6 +13,10 @@
     inset: 0;
     pointer-events: none;
     background-image: url("../assets/images/sample-hero-bg.png");
+    background-image: image-set(
+        url("../assets/images/sample-hero-bg.webp") type("image/webp"),
+        url("../assets/images/sample-hero-bg.png") type("image/png")
+    );
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
 :root {
     --font: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --navy: #063b64;
@@ -341,10 +339,12 @@ h3 {
     color: var(--white);
 }
 
-.site-footer h2 {
+.site-footer .footer-label {
     color: var(--white);
     font-size: 1rem;
+    font-weight: 700;
     letter-spacing: 0;
+    margin-top: 0;
     margin-bottom: 1rem;
 }
 

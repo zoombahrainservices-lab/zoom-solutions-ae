@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap");
-
 :root {
     --font-sans: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --primary: #063b64;
@@ -302,6 +300,23 @@ h3 {
     background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
+}
+
+@supports (background-image: image-set(url("x") type("image/webp"))) {
+    .hero-section {
+        background-image:
+            linear-gradient(
+                105deg,
+                rgba(4, 41, 67, 0.9) 0%,
+                rgba(6, 59, 100, 0.58) 44%,
+                rgba(6, 59, 100, 0.28) 70%,
+                rgba(6, 59, 100, 0.12) 100%
+            ),
+            image-set(
+                url("assets/images/hero-cold-chain.webp") type("image/webp"),
+                url("assets/images/hero-cold-chain.png") type("image/png")
+            );
+    }
 }
 
 .hero-grid {

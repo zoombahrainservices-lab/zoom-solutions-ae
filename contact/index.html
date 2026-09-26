@@ -4,24 +4,33 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Contact Zoom Solutions | Pharma Cold Chain Logistics UAE & Bahrain</title>
+    <title>Contact Zoom Solutions | Request a Logistics Quote</title>
 
     <meta name="description"
-        content="Contact Zoom Solutions for pharma cold chain logistics, biological substance handling, temperature-controlled packaging, sample collection and live monitoring across UAE, Bahrain and worldwide.">
+        content="Request a logistics quote from Zoom Solutions. Share the route, temperature range, shipment type and deadline for your pharmaceutical or biological movement.">
     <meta name="robots" content="index, follow, max-image-preview:large">
     <meta name="author" content="Zoom Solutions">
     <meta name="theme-color" content="#063b64">
 
     <link rel="canonical" href="https://zoomsolutions.ae/contact/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap">
     <link rel="stylesheet" href="../assets/css/global.css">
     <link rel="stylesheet" href="style.css">
 
     <meta property="og:type" content="website">
-    <meta property="og:title" content="Contact Zoom Solutions | Pharma Cold Chain Logistics UAE & Bahrain">
+    <meta property="og:title" content="Contact Zoom Solutions | Request a Logistics Quote">
     <meta property="og:description"
-        content="Request a quote for pharma cold chain logistics, biological substance handling, sample collection, packaging and shipment monitoring.">
+        content="Request a logistics quote from Zoom Solutions. Share the route, temperature range, shipment type and deadline for your pharmaceutical or biological movement.">
     <meta property="og:url" content="https://zoomsolutions.ae/contact/">
     <meta property="og:site_name" content="Zoom Solutions">
+    <meta property="og:image" content="https://zoomsolutions.ae/assets/images/hero-cold-chain.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Contact Zoom Solutions | Request a Logistics Quote">
+    <meta name="twitter:description"
+        content="Request a logistics quote from Zoom Solutions. Share the route, temperature range, shipment type and deadline for your pharmaceutical or biological movement.">
+    <meta name="twitter:image" content="https://zoomsolutions.ae/assets/images/hero-cold-chain.png">
 
     <script type="application/ld+json">
   {
@@ -103,36 +112,6 @@
             "item": "https://zoomsolutions.ae/contact/"
           }
         ]
-      },
-      {
-        "@type": "FAQPage",
-        "@id": "https://zoomsolutions.ae/contact/#faq",
-        "mainEntity": [
-          {
-            "@type": "Question",
-            "name": "What information should I provide for a cold chain logistics quote?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Please provide origin, destination, product type, temperature range, shipment size, pickup date, delivery deadline and any monitoring or packaging requirements."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Can Zoom Solutions support urgent healthcare shipments?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Zoom Solutions can review urgent healthcare, biological substance and temperature-controlled shipment requirements and recommend suitable air, road or express logistics options."
-            }
-          },
-          {
-            "@type": "Question",
-            "name": "Does Zoom Solutions serve both UAE and Bahrain?",
-            "acceptedAnswer": {
-              "@type": "Answer",
-              "text": "Yes. Zoom Solutions supports customers through UAE and Bahrain offices with regional and worldwide healthcare logistics coordination."
-            }
-          }
-        ]
       }
     ]
   }
@@ -172,13 +151,17 @@
             <div class="container contact-main-grid">
                 <div class="form-panel">
                     <p class="eyebrow">Request a logistics quote</p>
-                    <h2>Send your shipment details.</h2>
+                    <h1>Send your shipment details.</h1>
                     <p>
                         Use this form for cold chain logistics, biological substance handling, temperature-controlled
                         packaging, live monitoring or sample collection support.
                     </p>
 
-                    <form class="contact-form" action="#" method="post">
+                    <form class="contact-form" id="quote-form-fields" action="#" method="post" novalidate>
+                        <div class="field field-hp" aria-hidden="true">
+                            <label for="company-website">Company website</label>
+                            <input type="text" id="company-website" name="company_website" tabindex="-1" autocomplete="off">
+                        </div>
                         <div class="form-grid">
                             <div class="field">
                                 <label for="name">Full name *</label>
@@ -237,6 +220,12 @@
                             </div>
 
                             <div class="field">
+                                <label for="shipment-type">Product / shipment type</label>
+                                <input type="text" id="shipment-type" name="shipment_type" autocomplete="off"
+                                    placeholder="Vaccine, biologic, clinical sample, UN3373">
+                            </div>
+
+                            <div class="field">
                                 <label for="pickup">Preferred pickup date</label>
                                 <input type="date" id="pickup" name="pickup_date">
                             </div>
@@ -255,10 +244,11 @@
                         </div>
 
                         <button class="btn btn-primary form-submit" type="submit">Submit Inquiry</button>
+                        <p class="form-status" id="form-status" role="status" aria-live="polite" hidden></p>
 
                         <p class="form-note">
-                            This static form needs to be connected to your hosting form service or backend. You can also
-                            email us directly at
+                            Submit opens an email to the UAE office with these details. The inquiry is sent only when
+                            you send that email. You can also write directly to
                             <a href="mailto:ebrahim@zoomsolutions.ae">ebrahim@zoomsolutions.ae</a>.
                         </p>
                     </form>
@@ -329,7 +319,7 @@
             </div>
 
             <div>
-                <h2>Solutions</h2>
+                <p class="footer-label">Solutions</p>
                 <a href="../cold-chain-logistics/">Cold Chain Logistics</a>
                 <a href="../biological-substance-handling/">Biological Substance Handling</a>
                 <a href="../temperature-controlled-packaging/">Temperature-Controlled Packaging</a>
@@ -338,7 +328,7 @@
             </div>
 
             <div>
-                <h2>Company</h2>
+                <p class="footer-label">Company</p>
                 <a href="../about/">About</a>
                 <a href="../contact/">Contact</a>
                 <a href="mailto:niaz@zoombahrain.co">niaz@zoombahrain.co</a>

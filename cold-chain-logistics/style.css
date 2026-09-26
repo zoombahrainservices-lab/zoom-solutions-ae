@@ -11,6 +11,20 @@
     background-repeat: no-repeat;
 }
 
+@supports (background-image: image-set(url("x") type("image/webp"))) {
+    .cold-hero {
+        background:
+            linear-gradient(105deg, rgba(4, 41, 67, 0.85) 0%, rgba(6, 59, 100, 0.52) 44%, rgba(6, 59, 100, 0.22) 100%),
+            image-set(
+                url("../assets/images/cold-chain-hero-page.webp") type("image/webp"),
+                url("../assets/images/cold-chain-hero-page.png") type("image/png")
+            );
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+}
+
 .cold-hero-bg {
     display: none;
 }

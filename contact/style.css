@@ -222,6 +222,12 @@
     align-items: start;
 }
 
+.form-panel h1 {
+    font-size: clamp(2rem, 4.5vw, 4.4rem);
+    font-weight: 700;
+    line-height: 1.05;
+}
+
 .form-panel {
     padding: clamp(24px, 4vw, 48px);
     border: 1px solid var(--line);
@@ -296,6 +302,48 @@
 .form-note a {
     color: var(--blue);
     font-weight: 850;
+}
+
+.contact-form {
+    position: relative;
+}
+
+.field-hp {
+    position: absolute;
+    left: -10000px;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+}
+
+.field.is-invalid input,
+.field.is-invalid select,
+.field.is-invalid textarea {
+    border-color: #9b2c2c;
+}
+
+.field-error {
+    margin: 0;
+    color: #9b2c2c;
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.form-status {
+    margin: 1rem 0 0;
+    padding: 0.9rem 1rem;
+    border-radius: 16px;
+    font-weight: 700;
+}
+
+.form-status.is-success {
+    background: #e8f6ee;
+    color: #0d5c32;
+}
+
+.form-status.is-error {
+    background: #fdecec;
+    color: #8f1d1d;
 }
 
 .contact-sidebar {
