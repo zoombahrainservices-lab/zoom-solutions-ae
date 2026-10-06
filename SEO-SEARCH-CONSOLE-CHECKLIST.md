@@ -3,6 +3,10 @@
 Site: https://zoomsolutions.ae/
 Prepared: 26 September 2026
 
+Status on 6 October 2026: the sitemap is in the repository, including the blog, freight forwarding, warehousing and privacy URLs. Search Console itself is not verified from this repository. Domain verification still needs the TXT record Google shows, added at the DNS host (`ns3.tasjeel.ae` and `ns4.tasjeel.ae`). Page measurement uses the existing Google Analytics 4 property `G-KWK96N34RF`. Filter reports by the hostname `zoomsolutions.ae`.
+
+The quote form now posts to ebrahim@zoomsolutions.ae and copies neaz@zoombahrain.co. The first delivery needs the UAE inbox to open FormSubmit’s confirmation email.
+
 Do this after the updated repository is on GitHub Pages and the live homepage title is `Pharma Cold Chain Logistics UAE | Zoom Solutions`. Submitting the sitemap before that deploy will ask Google to index the June 2026 pages.
 
 Search Console: https://search.google.com/search-console

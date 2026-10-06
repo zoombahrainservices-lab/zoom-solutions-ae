@@ -346,6 +346,16 @@
     color: #8f1d1d;
 }
 
+.form-status.is-busy {
+    background: #e7f4fb;
+    color: var(--navy);
+}
+
+.form-submit:disabled {
+    opacity: 0.7;
+    cursor: wait;
+}
+
 .contact-sidebar {
     display: grid;
     gap: 18px;

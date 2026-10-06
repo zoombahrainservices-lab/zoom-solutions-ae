@@ -94,7 +94,7 @@ if (quoteForm) {
         clearInvalid();
 
         if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
-            showStatus("success", "Your email app should open with this inquiry addressed to ebrahim@zoomsolutions.ae. Send that email to deliver it. Nothing is sent until you send the email.");
+            showStatus("success", "Thank you. If you still need help, email ebrahim@zoomsolutions.ae or use WhatsApp.");
             return;
         }
 
@@ -118,7 +118,7 @@ if (quoteForm) {
         }
 
         if (firstInvalid) {
-            showStatus("error", "Complete the required fields before opening the email.");
+            showStatus("error", "Complete the required fields before sending the inquiry.");
             firstInvalid.focus();
             return;
         }
@@ -128,30 +128,72 @@ if (quoteForm) {
             return control && "value" in control ? String(control.value).trim() : "";
         };
 
-        const body = [
-            `Name: ${valueOf("name")}`,
-            `Company: ${valueOf("company")}`,
-            `Email: ${valueOf("email")}`,
-            `Phone: ${valueOf("phone")}`,
-            `Service: ${valueOf("service")}`,
-            `Origin: ${valueOf("origin")}`,
-            `Destination: ${valueOf("destination")}`,
-            `Product / shipment type: ${valueOf("shipment_type")}`,
-            `Temperature range: ${valueOf("temperature")}`,
-            `Pickup date: ${valueOf("pickup_date")}`,
-            `Delivery date: ${valueOf("delivery_date")}`,
-            "",
-            valueOf("message"),
-        ].join("\n");
-
-        const mailto = `mailto:ebrahim@zoomsolutions.ae?subject=${encodeURIComponent("Logistics quote request")}&body=${encodeURIComponent(body)}`;
-
-        if (mailto.length > 1800) {
-            showStatus("error", "This inquiry is too long to open in an email link. Email ebrahim@zoomsolutions.ae and include the same details.");
-            return;
+        const submitButton = quoteForm.querySelector("[type='submit']");
+        const submitLabel = submitButton ? submitButton.textContent : "Submit Inquiry";
+        if (submitButton instanceof HTMLButtonElement) {
+            submitButton.disabled = true;
+            submitButton.textContent = "Sending…";
         }
+        showStatus("busy", "Sending your inquiry…");
 
-        window.location.href = mailto;
-        showStatus("success", "Your email app should open with this inquiry addressed to ebrahim@zoomsolutions.ae. Send that email to deliver it. Nothing is sent until you send the email.");
+        const payload = {
+            name: valueOf("name"),
+            email: valueOf("email"),
+            _replyto: valueOf("email"),
+            _subject: "Logistics quote request from zoomsolutions.ae",
+            _template: "table",
+            _captcha: "false",
+            _cc: "neaz@zoombahrain.co",
+            company: valueOf("company"),
+            phone: valueOf("phone"),
+            service: valueOf("service"),
+            origin: valueOf("origin"),
+            destination: valueOf("destination"),
+            shipment_type: valueOf("shipment_type"),
+            temperature: valueOf("temperature"),
+            pickup_date: valueOf("pickup_date"),
+            delivery_date: valueOf("delivery_date"),
+            message: valueOf("message"),
+            _honey: "",
+        };
+
+        fetch("https://formsubmit.co/ajax/ebrahim@zoomsolutions.ae", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                Accept: "application/json",
+            },
+            body: JSON.stringify(payload),
+        })
+            .then(async (response) => {
+                const data = await response.json().catch(() => null);
+                const message = data && typeof data.message === "string" ? data.message : "";
+                const accepted = response.ok && data && (data.success === true || data.success === "true");
+                if (!accepted) {
+                    const waiting = /activat/i.test(message);
+                    showStatus(
+                        "error",
+                        waiting
+                            ? "The UAE office still needs to confirm form delivery. Email ebrahim@zoomsolutions.ae with these details until that confirmation is done."
+                            : "The inquiry was not sent. Email ebrahim@zoomsolutions.ae with the same details, or use WhatsApp. Nothing has been delivered yet."
+                    );
+                    return;
+                }
+                const serviceName = valueOf("service");
+                if (typeof window.zoomTrack === "function") {
+                    window.zoomTrack("quote_submit", { service_name: serviceName });
+                }
+                quoteForm.reset();
+                showStatus("success", "Your inquiry has been sent to ebrahim@zoomsolutions.ae, with a copy to the Bahrain office. They will reply by email.");
+            })
+            .catch(() => {
+                showStatus("error", "The inquiry was not sent. Email ebrahim@zoomsolutions.ae with the same details, or use WhatsApp. Nothing has been delivered yet.");
+            })
+            .finally(() => {
+                if (submitButton instanceof HTMLButtonElement) {
+                    submitButton.disabled = false;
+                    submitButton.textContent = submitLabel;
+                }
+            });
     });
 }

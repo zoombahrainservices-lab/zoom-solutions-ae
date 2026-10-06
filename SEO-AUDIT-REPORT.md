@@ -280,7 +280,7 @@ The `.ae` domain, Sharjah office address, UAE email, UAE WhatsApp link, and `en-
 Bahrain coverage that already exists was kept:
 
 - Head office: Zoom Solutions WLL, Office 12, Bldg 656, Road No 3625, Manama
-- Email: niaz@zoombahrain.co
+- Email: neaz@zoombahrain.co
 - WhatsApp Bahrain
 - Homepage section “Bahrain and UAE offices”
 - LocalBusiness markup for that address on the about and contact pages
