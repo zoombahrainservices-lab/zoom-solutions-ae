@@ -304,7 +304,7 @@ h3 {
             rgba(6, 59, 100, 0.28) 70%,
             rgba(6, 59, 100, 0.12) 100%
         ),
-        url('assets/images/hero-cold-chain.png');
+        url('assets/images/hero-cold-chain.webp');
     background-size: cover;
     background-position: left center;
     background-repeat: no-repeat;
@@ -320,10 +320,7 @@ h3 {
                 rgba(6, 59, 100, 0.28) 70%,
                 rgba(6, 59, 100, 0.12) 100%
             ),
-            image-set(
-                url("assets/images/hero-cold-chain.webp") type("image/webp"),
-                url("assets/images/hero-cold-chain.png") type("image/png")
-            );
+            url("assets/images/hero-cold-chain.webp");
     }
 }
 

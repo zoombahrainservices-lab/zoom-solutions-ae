@@ -10,11 +10,7 @@
     position: absolute;
     inset: 0;
     pointer-events: none;
-    background-image: url("../assets/images/packaging-hero-bg.png");
-    background-image: image-set(
-        url("../assets/images/packaging-hero-bg.webp") type("image/webp"),
-        url("../assets/images/packaging-hero-bg.png") type("image/png")
-    );
+    background-image: url("../assets/images/packaging-hero-bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

@@ -5,7 +5,7 @@
     padding-bottom: clamp(72px, 8vw, 130px);
     background:
         linear-gradient(105deg, rgba(4, 41, 67, 0.78) 0%, rgba(6, 59, 100, 0.44) 44%, rgba(6, 59, 100, 0.2) 100%),
-        url("../assets/images/bio-hero-bg.png");
+        url("../assets/images/bio-hero-bg.webp");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -15,10 +15,7 @@
     .bio-hero {
         background:
             linear-gradient(105deg, rgba(4, 41, 67, 0.78) 0%, rgba(6, 59, 100, 0.44) 44%, rgba(6, 59, 100, 0.2) 100%),
-            image-set(
-                url("../assets/images/bio-hero-bg.webp") type("image/webp"),
-                url("../assets/images/bio-hero-bg.png") type("image/png")
-            );
+            url("../assets/images/bio-hero-bg.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;

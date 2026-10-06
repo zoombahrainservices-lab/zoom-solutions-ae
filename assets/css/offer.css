@@ -5,7 +5,7 @@
     background:
         radial-gradient(circle at 82% 18%, rgba(32, 184, 232, 0.28), transparent 32%),
         linear-gradient(105deg, rgba(4, 41, 67, 0.9) 0%, rgba(6, 59, 100, 0.62) 48%, rgba(6, 59, 100, 0.28) 100%),
-        url("../images/cold-chain-hero-page.png");
+        url("../images/cold-chain-hero-page.webp");
     background-size: cover;
     background-position: center;
 }
