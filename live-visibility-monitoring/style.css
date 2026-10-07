@@ -51,11 +51,11 @@
     font-size: clamp(1.05rem, 1.35vw, 1.35rem);
     line-height: 1.75;
     margin-bottom: 2rem;
-    color: var(--ink);
+    color: var(--navy);
 }
 
 .visibility-hero .eyebrow {
-    color: var(--blue);
+    color: var(--navy);
 }
 
 .visibility-hero-actions {
