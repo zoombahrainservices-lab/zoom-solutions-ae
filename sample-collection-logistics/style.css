@@ -256,7 +256,13 @@
 }
 
 .packaging-grid,
-.monitoring-grid,
+.monitoring-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(36px, 5vw, 72px);
+    align-items: center;
+}
+
 .quality-grid {
     display: grid;
     grid-template-columns: 0.9fr 1.1fr;
@@ -281,11 +287,26 @@
     font-size: 1.06rem;
 }
 
-.overview-visual {
-    border-radius: var(--radius-xl);
+.overview-visual,
+.packaging-visual,
+.monitoring-visual {
+    width: 100%;
+    aspect-ratio: 4 / 3;
     overflow: hidden;
     border: 1px solid var(--line);
+    border-radius: var(--radius-xl);
+    background: var(--soft);
     box-shadow: var(--shadow);
+}
+
+.overview-visual img,
+.packaging-visual img,
+.monitoring-visual img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
 }
 
 .process-section {
@@ -367,7 +388,7 @@
 
 .service-card {
     position: relative;
-    min-height: 280px;
+    aspect-ratio: 4 / 3;
     display: block;
     padding: 0;
     overflow: hidden;
@@ -431,7 +452,7 @@
 
 .quality-step {
     position: relative;
-    min-height: 280px;
+    aspect-ratio: 4 / 3;
     display: block;
     padding: 0;
     overflow: hidden;
@@ -570,42 +591,6 @@
     background: var(--white);
 }
 
-.packaging-visual,
-.monitoring-visual {
-    min-height: 460px;
-    display: grid;
-    place-items: center;
-    border-radius: var(--radius-xl);
-    background:
-        radial-gradient(circle at 20% 20%, rgba(32, 184, 232, 0.32), transparent 30%),
-        linear-gradient(135deg, #eaf8ff, #ffffff);
-}
-
-.packaging-visual {
-    overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
-    background: transparent;
-}
-
-.packaging-visual img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
-
-.monitoring-visual {
-    overflow: hidden;
-    border: 1px solid var(--line);
-    box-shadow: var(--shadow);
-    background: transparent;
-}
-
-.monitoring-visual img {
-    display: block;
-    width: 100%;
-    height: auto;
-}
 
 .support-grid {
     display: grid;
@@ -760,12 +745,12 @@ details p {
 
     /* visual LEFT, heading+body RIGHT */
     .overview-grid {
-        grid-template-columns: 1.1fr 0.9fr;
+        grid-template-columns: 1fr 1fr;
         grid-template-areas:
             "visual heading"
             "visual body";
-        gap: clamp(36px, 7vw, 100px);
-        align-items: start;
+        gap: clamp(36px, 5vw, 72px);
+        align-items: center;
     }
 
     .overview-visual  { grid-area: visual;  align-self: center; }
@@ -827,10 +812,5 @@ details p {
 
     .service-card {
         min-height: auto;
-    }
-
-    .packaging-visual,
-    .monitoring-visual {
-        min-height: 360px;
     }
 }
