@@ -208,6 +208,24 @@ h3 {
     border: 1px solid var(--line);
 }
 
+.btn-whatsapp {
+    color: #fff;
+    background: #25d366;
+    box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
+}
+
+.btn-whatsapp:hover {
+    color: #fff;
+    background: #1ebe5d;
+}
+
+.quote-whatsapp {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+}
+
 .text-link {
     display: inline-flex;
     margin-top: 0.8rem;

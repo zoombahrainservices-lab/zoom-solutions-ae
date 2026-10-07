@@ -24,6 +24,47 @@ if (year) {
     year.textContent = new Date().getFullYear();
 }
 
+const QUOTE_INTRO = "Hello Zoom Solutions, I would like a quotation enquiry.";
+
+function quotationText() {
+    const form = document.querySelector(".contact-form");
+    const lines = [QUOTE_INTRO];
+    if (!form) return lines.join("\n");
+
+    const pairs = [
+        ["Name", "name"],
+        ["Company", "company"],
+        ["Email", "email"],
+        ["Phone", "phone"],
+        ["Service", "service"],
+        ["Temperature", "temperature"],
+        ["Origin", "origin"],
+        ["Destination", "destination"],
+        ["Shipment", "shipment_type"],
+        ["Pickup", "pickup_date"],
+        ["Delivery", "delivery_date"],
+        ["Details", "message"],
+    ];
+
+    for (const [label, name] of pairs) {
+        const control = form.elements.namedItem(name);
+        const value = control && "value" in control ? String(control.value).trim() : "";
+        if (value) lines.push(`${label}: ${value}`);
+    }
+
+    return lines.join("\n");
+}
+
+document.querySelectorAll("[data-quote-wa]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+        const number = link.getAttribute("data-quote-wa");
+        if (!number) return;
+        event.preventDefault();
+        const url = `https://wa.me/${number}?text=${encodeURIComponent(quotationText())}`;
+        window.open(url, "_blank", "noopener,noreferrer");
+    });
+});
+
 const whatsappToggle = document.getElementById("whatsapp-toggle");
 const whatsappMenu = document.getElementById("whatsapp-menu");
 const whatsappWidget = document.querySelector(".whatsapp-widget");
