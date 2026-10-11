@@ -10,7 +10,7 @@
     --font: "Manrope", ui-sans-serif, system-ui, -apple-system, sans-serif;
     --navy: #063b64;
     --navy-dark: #04253f;
-    --blue: #087fc0;
+    --blue: #086eaa;
     --cyan: #20b8e8;
     --sky: #eaf8ff;
     --soft: #f6fbff;
@@ -129,6 +129,56 @@ button {
     transform: translateY(0);
 }
 
+.crumb-bar {
+    background: var(--soft);
+    border-bottom: 1px solid var(--line);
+}
+
+.crumb-bar ol {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.35rem 0;
+    list-style: none;
+    margin: 0;
+    padding: 10px 0;
+    font-size: 0.9rem;
+    font-weight: 650;
+    color: var(--muted);
+}
+
+.crumb-bar li + li::before {
+    content: "/";
+    margin: 0 0.45rem;
+    color: var(--muted);
+}
+
+.crumb-bar a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.crumb-bar [aria-current="page"] {
+    color: var(--navy);
+    font-weight: 750;
+}
+
+.packaging-hero-text a {
+    font-weight: 700;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
+.overview-body a,
+.faq-list a,
+.info-hero__text a {
+    color: var(--navy);
+    font-weight: 650;
+    text-decoration: underline;
+    text-underline-offset: 0.15em;
+}
+
 .eyebrow {
     color: var(--blue);
     font-size: 0.78rem;
@@ -136,6 +186,11 @@ button {
     letter-spacing: 0.16em;
     text-transform: uppercase;
     margin-bottom: 0.85rem;
+}
+
+.temperature-section .eyebrow,
+.ranges-section .eyebrow {
+    color: var(--cyan);
 }
 
 h1,
@@ -209,13 +264,13 @@ h3 {
 }
 
 .btn-whatsapp {
-    color: #fff;
+    color: #042943;
     background: #25d366;
     box-shadow: 0 12px 28px rgba(37, 211, 102, 0.28);
 }
 
 .btn-whatsapp:hover {
-    color: #fff;
+    color: #042943;
     background: #1ebe5d;
 }
 

@@ -92,11 +92,27 @@ if (whatsappToggle && whatsappMenu && whatsappWidget) {
     });
 }
 
+// Quote form delivery uses Formspree so a static GitHub Pages site can send
+// the enquiry over HTTPS. Nothing here opens the visitor's email application.
+//
+// This file has no Formspree endpoint yet. Replace YOUR_FORM_ID after creating
+// the form. Do not put API keys or other secrets in this file; the form id is public.
+//
+// Configure both of these in the Formspree dashboard, not in frontend code:
+//   1. Form endpoint — https://formspree.io/forms → create a form → copy the id
+//      from https://formspree.io/f/<id> into FORMSPREE_FORM_ID below.
+//   2. Business inbox — form Settings → email notifications. Set the recipient
+//      to ebrahim@zoomsolutions.ae and add neaz@zoombahrain.co if Bahrain
+//      should receive a copy. Formspree does not take those addresses from this script.
+const FORMSPREE_FORM_ID = "YOUR_FORM_ID";
+
 const quoteForm = document.querySelector(".contact-form");
 
 if (quoteForm) {
     const status = document.getElementById("form-status");
     const honeypot = quoteForm.querySelector("[name='company_website']");
+    const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    let submitting = false;
 
     const showStatus = (kind, message) => {
         if (!status) return;
@@ -130,8 +146,19 @@ if (quoteForm) {
         control.setAttribute("aria-describedby", error.id);
     };
 
+    const valueOf = (name) => {
+        const control = quoteForm.elements.namedItem(name);
+        return control && "value" in control ? String(control.value).trim() : "";
+    };
+
+    const formEndpoint = () => {
+        if (!/^[a-z0-9]{6,}$/i.test(FORMSPREE_FORM_ID) || FORMSPREE_FORM_ID === "YOUR_FORM_ID") return "";
+        return `https://formspree.io/f/${FORMSPREE_FORM_ID}`;
+    };
+
     quoteForm.addEventListener("submit", (event) => {
         event.preventDefault();
+        if (submitting) return;
         clearInvalid();
 
         if (honeypot instanceof HTMLInputElement && honeypot.value.trim()) {
@@ -151,7 +178,7 @@ if (quoteForm) {
             const control = quoteForm.elements.namedItem(name);
             if (!(control instanceof HTMLInputElement || control instanceof HTMLSelectElement || control instanceof HTMLTextAreaElement)) continue;
             const value = control.value.trim();
-            const emailInvalid = control instanceof HTMLInputElement && control.type === "email" && value !== "" && !control.checkValidity();
+            const emailInvalid = name === "email" && value !== "" && !emailPattern.test(value);
             if (!value || emailInvalid) {
                 markInvalid(control, message);
                 firstInvalid = firstInvalid || control;
@@ -164,13 +191,23 @@ if (quoteForm) {
             return;
         }
 
-        const valueOf = (name) => {
-            const control = quoteForm.elements.namedItem(name);
-            return control && "value" in control ? String(control.value).trim() : "";
-        };
-
+        const endpoint = formEndpoint();
         const submitButton = quoteForm.querySelector("[type='submit']");
         const submitLabel = submitButton ? submitButton.textContent : "Submit Inquiry";
+        const releaseSubmit = () => {
+            submitting = false;
+            if (submitButton instanceof HTMLButtonElement) {
+                submitButton.disabled = false;
+                submitButton.textContent = submitLabel;
+            }
+        };
+
+        if (!endpoint) {
+            showStatus("error", "This form is not connected to an inbox yet. Email ebrahim@zoomsolutions.ae with these details, or use WhatsApp. Nothing has been delivered.");
+            return;
+        }
+
+        submitting = true;
         if (submitButton instanceof HTMLButtonElement) {
             submitButton.disabled = true;
             submitButton.textContent = "Sending…";
@@ -182,23 +219,20 @@ if (quoteForm) {
             email: valueOf("email"),
             _replyto: valueOf("email"),
             _subject: "Logistics quote request from zoomsolutions.ae",
-            _template: "table",
-            _captcha: "false",
-            _cc: "neaz@zoombahrain.co",
             company: valueOf("company"),
             phone: valueOf("phone"),
             service: valueOf("service"),
+            temperature: valueOf("temperature"),
             origin: valueOf("origin"),
             destination: valueOf("destination"),
             shipment_type: valueOf("shipment_type"),
-            temperature: valueOf("temperature"),
             pickup_date: valueOf("pickup_date"),
             delivery_date: valueOf("delivery_date"),
             message: valueOf("message"),
-            _honey: "",
         };
 
-        fetch("https://formsubmit.co/ajax/ebrahim@zoomsolutions.ae", {
+        let sent = false;
+        fetch(endpoint, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -206,35 +240,22 @@ if (quoteForm) {
             },
             body: JSON.stringify(payload),
         })
-            .then(async (response) => {
-                const data = await response.json().catch(() => null);
-                const message = data && typeof data.message === "string" ? data.message : "";
-                const accepted = response.ok && data && (data.success === true || data.success === "true");
-                if (!accepted) {
-                    const waiting = /activat/i.test(message);
-                    showStatus(
-                        "error",
-                        waiting
-                            ? "The UAE office still needs to confirm form delivery. Email ebrahim@zoomsolutions.ae with these details until that confirmation is done."
-                            : "The inquiry was not sent. Email ebrahim@zoomsolutions.ae with the same details, or use WhatsApp. Nothing has been delivered yet."
-                    );
+            .then((response) => {
+                if (!response.ok) {
+                    showStatus("error", "The inquiry was not sent. Email ebrahim@zoomsolutions.ae with the same details, or use WhatsApp. Nothing has been delivered yet.");
                     return;
                 }
-                const serviceName = valueOf("service");
+                sent = true;
                 if (typeof window.zoomTrack === "function") {
-                    window.zoomTrack("quote_submit", { service_name: serviceName });
+                    window.zoomTrack("quote_submit", { service_name: valueOf("service") });
                 }
-                quoteForm.reset();
-                showStatus("success", "Your inquiry has been sent to ebrahim@zoomsolutions.ae, with a copy to the Bahrain office. They will reply by email.");
+                window.location.assign(new URL("../thank-you.html", window.location.href).href);
             })
             .catch(() => {
                 showStatus("error", "The inquiry was not sent. Email ebrahim@zoomsolutions.ae with the same details, or use WhatsApp. Nothing has been delivered yet.");
             })
             .finally(() => {
-                if (submitButton instanceof HTMLButtonElement) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = submitLabel;
-                }
+                if (!sent) releaseSubmit();
             });
     });
 }
