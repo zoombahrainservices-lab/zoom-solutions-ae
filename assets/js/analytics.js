@@ -1,5 +1,5 @@
 (function () {
-    var id = "G-KWK96N34RF";
+    var id = "G-9NSJCJ2RSJ";
 
     window.dataLayer = window.dataLayer || [];
     window.gtag = function () {
